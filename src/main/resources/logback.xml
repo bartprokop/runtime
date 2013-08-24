@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+    <property resource="name/prokop/bart/runtime/logger/default.properties" />
+    <property resource="META-INF/runtime.properties" />
+    <include resource="META-INF/runtime-logger.xml"/>
+    
+    <appender name="RUNTIME-FILE-LOG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${runtime.logger.directory}/${runtime.logger.file}</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${runtime.logger.directory}/${runtime.logger.rollingPattern}</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="${runtime.logger.rootLevel}">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="RUNTIME-FILE-LOG"/>
+    </root>
+</configuration>

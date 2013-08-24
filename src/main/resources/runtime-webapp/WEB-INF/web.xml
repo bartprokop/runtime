@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <display-name>runtime-webapp</display-name>
+    <description>Default Runtime web application</description>
+
+    <!-- This will make all answers compressed, if client supports it. -->    
+    <filter>
+        <filter-name>GzipFilter</filter-name>
+        <filter-class>org.eclipse.jetty.servlets.GzipFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>GzipFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- This servlet provides some basic information about Jetty and Runtime -->
+    <servlet>
+        <servlet-name>WebInfo</servlet-name>
+        <servlet-class>name.prokop.bart.runtime.jetty.WebInfo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebInfo</servlet-name>
+        <url-pattern>/WebInfo</url-pattern>
+    </servlet-mapping>
+
+    <!-- This servlet is typical hello world example -->    
+    <servlet>
+        <servlet-name>HelloWorld</servlet-name>
+        <servlet-class>name.prokop.bart.runtime.jetty.HelloWorldServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloWorld</servlet-name>
+        <url-pattern>/HelloWorld</url-pattern>
+    </servlet-mapping>
+
+    <!-- This is example Spring MVC application -->
+    <servlet>
+        <servlet-name>example</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>example</servlet-name>
+        <url-pattern>/example/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- This is an example of giving some JVM insternal information to external world -->
+    <servlet>
+        <servlet-name>BasicHealthCheckServlet</servlet-name>
+        <servlet-class>name.prokop.bart.runtime.jetty.BasicHealthCheckServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BasicHealthCheckServlet</servlet-name>
+        <url-pattern>/healthCheck</url-pattern>
+    </servlet-mapping>
+</web-app>
