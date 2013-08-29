@@ -9,8 +9,8 @@
     <packaging>jar</packaging>
 
     <name>Bart Java Runtime</name>
-    <url>http://www.isocom.eu/m2-sites/runtime</url>
-    <description>Fiscal Printer Library</description>
+    <url>https://github.com/bartprokop/runtime</url>
+    <description>Bart Java Runtime</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -25,54 +25,25 @@
     </developers>
 
     <distributionManagement>
-        <repository>
-            <id>www.isocom.eu</id>
-            <url>scp://www.isocom.eu/opt/www/www.isocom.eu/m2-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>www.isocom.eu</id>
-            <url>scp://www.isocom.eu/opt/www/www.isocom.eu/m2-snapshots/</url>
-        </snapshotRepository>
         <site>
-            <id>www.isocom.eu</id>
-            <url>scp://www.isocom.eu/opt/www/www.isocom.eu/m2-sites/${project.artifactId}</url>
+            <id>bart.prokop.name</id>
+            <url>ftp://ftp.internetdsl.pl/m2-sites/${project.artifactId}-${project.version}</url>
         </site>
     </distributionManagement>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.7</version>
-                    <dependencies>
-                        <dependency><!-- add support for ssh/scp -->
-                            <groupId>org.apache.maven.wagon</groupId>
-                            <artifactId>wagon-ssh</artifactId>
-                            <version>2.3</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-site-plugin</artifactId>
-                    <version>3.2</version>
-                    <dependencies>
-                        <dependency><!-- add support for ssh/scp -->
-                            <groupId>org.apache.maven.wagon</groupId>
-                            <artifactId>wagon-ssh</artifactId>
-                            <version>2.3</version>
-                        </dependency>
-                    </dependencies>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-        
+        <extensions>
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ftp</artifactId>
+                <version>2.4</version>
+            </extension>
+        </extensions>
+                
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
@@ -80,7 +51,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.8.1</version>
+                <version>2.9.1</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -92,6 +63,7 @@
             </plugin>
             <plugin>
                 <artifactId>maven-site-plugin</artifactId>
+                <version>3.3</version>
                 <configuration>
                     <reportPlugins>
                         <plugin>
