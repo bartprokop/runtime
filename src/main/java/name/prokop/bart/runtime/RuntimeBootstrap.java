@@ -15,7 +15,6 @@ import name.prokop.bart.runtime.h2.H2RuntimeService;
 import name.prokop.bart.runtime.jetty.JettyRuntimeService;
 import name.prokop.bart.runtime.logger.LoggerRuntimeService;
 import name.prokop.bart.runtime.os.OperatingSystemRuntimeService;
-import name.prokop.bart.runtime.osgi.OSGiRuntimeService;
 import name.prokop.bart.runtime.spring.SpringRuntimeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,7 +38,7 @@ public enum RuntimeBootstrap {
         H2RuntimeService.INSTANCE,
         SpringRuntimeService.INSTANCE,
         JettyRuntimeService.INSTANCE,
-        OSGiRuntimeService.INSTANCE
+//        OSGiRuntimeService.INSTANCE
     };
     private final Logger logger;
 
