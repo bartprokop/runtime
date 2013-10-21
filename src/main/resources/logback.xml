@@ -24,8 +24,12 @@
         </encoder>
     </appender>
 
+    <appender name="MEMORY" class="name.prokop.bart.logback.MemoryAppender">
+    </appender>
+
     <root level="${runtime.logger.rootLevel}">
         <appender-ref ref="STDOUT"/>
         <appender-ref ref="RUNTIME-FILE-LOG"/>
+        <appender-ref ref="MEMORY"/>
     </root>
 </configuration>
