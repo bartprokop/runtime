@@ -123,39 +123,8 @@ public class RuntimeEngineDaemon implements Daemon {
             windowsService = null;
         }
     }
-    ////////////////////////////////////////////////////////////////////////////
 
-    /**
-     * The Java entry point. The main routine is only here so I can also run the
-     * application from the command line
-     *
-     * @param args Command line arguments, all ignored.
-     */
-    public static void cmdLineEntryPoint() throws Exception {
-        RuntimeEngineDaemon daemon = new RuntimeEngineDaemon();
-        daemon.init(null);
-        daemon.start();
-
-        // wait until receive stop command from keyboard
-        Scanner sc = new Scanner(System.in);
-        System.err.printf("Enter 'stop' to halt: ");
-        while (true) {
-            if (System.in.available() > 0 && sc.nextLine().toLowerCase().equals("stop")) {
-                break;
-            }
-            if (!RuntimeEngine.INSTANCE.isRunning()) {
-                break;
-            }
-            sleep100ms();
-        }
-
-        if (RuntimeEngine.INSTANCE.isRunning()) {
-            daemon.stop();
-        }
-        daemon.destroy();
-    }
-
-    private static void sleep100ms() {
+    public static void sleep100ms() {
         try {
             Thread.sleep(100);
         } catch (InterruptedException iex) {

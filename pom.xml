@@ -5,7 +5,7 @@
 
     <groupId>name.prokop.bart</groupId>
     <artifactId>runtime</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
     <name>Bart Java Runtime</name>
@@ -34,6 +34,21 @@
             <url>ftp://ftp.internetdsl.pl/m2-sites/${project.artifactId}-${project.version}</url>
         </site>
     </distributionManagement>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>central</id>
+            <name>bintray</name>
+            <url>http://jcenter.bintray.com</url>        
+        </pluginRepository>
+    </pluginRepositories>
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>bintray</name>
+            <url>http://jcenter.bintray.com</url>
+        </repository>
+    </repositories>
 
     <build>
         <extensions>
@@ -92,36 +107,11 @@
             <type>jar</type>
         </dependency>
         
-        <!-- Base services components: logging -->
-        <!-- We use logback as logging engine -->
-        <!-- Note that logback classic depends on slf4j 1.6.4 -->
-        <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-            <version>1.0.7</version>
-        </dependency>
+        <!-- logging -->
         <dependency>
             <groupId>name.prokop.bart</groupId>
             <artifactId>logback-ext</artifactId>
-            <version>1.0.7</version>
-        </dependency>
-        <!--
-            Here we define logging redirection (all known loggers go to slf4j)
-        -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jcl-over-slf4j</artifactId>
-            <version>1.6.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>log4j-over-slf4j</artifactId>
-            <version>1.6.6</version>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>jul-to-slf4j</artifactId>
-            <version>1.6.6</version>
+            <version>1.0.9</version>
         </dependency>
         <dependency>
             <groupId>uk.org.lidalia</groupId>

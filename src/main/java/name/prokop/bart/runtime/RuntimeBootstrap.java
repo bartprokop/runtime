@@ -35,7 +35,7 @@ public enum RuntimeBootstrap {
         LoggerRuntimeService.INSTANCE,
         OperatingSystemRuntimeService.INSTANCE,
         BouncyCastleRuntimeService.INSTANCE,
-        H2RuntimeService.INSTANCE,
+//        H2RuntimeService.INSTANCE,
         SpringRuntimeService.INSTANCE,
         JettyRuntimeService.INSTANCE,
 //        OSGiRuntimeService.INSTANCE
