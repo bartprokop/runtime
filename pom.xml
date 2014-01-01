@@ -25,10 +25,16 @@
             <name>Bartłomiej Prokop</name>
             <email>prokop.bart@gmail.com</email>
             <timezone>+1</timezone>
+            <url>http://bart.prokop.name/</url>
         </developer>
     </developers>
 
     <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <name>bartprokop-maven-commons</name>
+            <url>https://api.bintray.com/maven/bartprokop/maven/commons</url>
+        </repository>
         <site>
             <id>bart.prokop.name</id>
             <url>ftp://ftp.internetdsl.pl/m2-sites/${project.artifactId}-${project.version}</url>
@@ -67,6 +73,18 @@
                     <source>1.7</source>
                     <target>1.7</target>
                 </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <artifactId>maven-javadoc-plugin</artifactId>
