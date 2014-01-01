@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package name.prokop.bart.runtime;
 
 import static org.junit.Assert.*;
@@ -9,7 +5,7 @@ import org.junit.*;
 
 /**
  *
- * @author prokob01
+ * @author Bartłomiej P. Prokop
  */
 public class RuntimePropertiesJettyTest {
 

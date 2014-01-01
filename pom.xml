@@ -32,8 +32,8 @@
     <distributionManagement>
         <repository>
             <id>bintray</id>
-            <name>bartprokop-maven-commons</name>
-            <url>https://api.bintray.com/maven/bartprokop/maven/commons</url>
+            <name>bartprokop-maven-runtime</name>
+            <url>https://api.bintray.com/maven/bartprokop/maven/runtime</url>
         </repository>
         <site>
             <id>bart.prokop.name</id>

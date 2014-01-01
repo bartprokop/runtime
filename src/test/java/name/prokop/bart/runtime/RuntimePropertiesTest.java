@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package name.prokop.bart.runtime;
 
 import java.util.Iterator;
@@ -11,7 +7,7 @@ import org.junit.*;
 
 /**
  *
- * @author prokob01
+ * @author Bart Prokop
  */
 public class RuntimePropertiesTest {
 
